@@ -61,7 +61,7 @@ public class Optional<T> implements Serializable {
      * @param <T> type
      * @return empty option
      */
-    public static <T> Optional<T> none() {
+    public static <T> Optional<T> empty() {
         return new Optional<>();
     }
 
@@ -77,7 +77,7 @@ public class Optional<T> implements Serializable {
 
     public static <T> Optional<T> eitherOf(T val) {
         if (val == null) {
-            return Optional.none();
+            return Optional.empty();
         } else {
             return Optional.of(val);
         }

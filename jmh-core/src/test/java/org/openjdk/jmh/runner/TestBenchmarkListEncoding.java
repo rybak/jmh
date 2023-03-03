@@ -26,7 +26,6 @@ package org.openjdk.jmh.runner;
 
 import org.junit.Test;
 import org.openjdk.jmh.annotations.Mode;
-import org.openjdk.jmh.runner.options.TimeValue;
 import org.openjdk.jmh.util.Optional;
 
 import java.io.ByteArrayInputStream;
@@ -35,7 +34,6 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.nio.charset.Charset;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 
@@ -47,25 +45,25 @@ public class TestBenchmarkListEncoding {
                 generatedClassQName,
                 method,
                 mode,
-                Optional.<Integer>none(),
+                Optional.empty(),
                 new int[]{1},
-                Optional.<Collection<String>>none(),
-                Optional.<Integer>none(),
-                Optional.<TimeValue>none(),
-                Optional.<Integer>none(),
-                Optional.<Integer>none(),
-                Optional.<TimeValue>none(),
-                Optional.<Integer>none(),
-                Optional.<Integer>none(),
-                Optional.<Integer>none(),
-                Optional.<String>none(),
-                Optional.<Collection<String>>none(),
-                Optional.<Collection<String>>none(),
-                Optional.<Collection<String>>none(),
-                Optional.<Map<String, String[]>>none(),
-                Optional.<TimeUnit>none(),
-                Optional.<Integer>none(),
-                Optional.<TimeValue>none()
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty()
         );
         return br;
     }

@@ -124,7 +124,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<String> output = Optional.none();
+    private Optional<String> output = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder output(String filename) {
@@ -139,7 +139,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<ResultFormatType> rfType = Optional.none();
+    private Optional<ResultFormatType> rfType = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder resultFormat(ResultFormatType type) {
@@ -154,7 +154,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<String> result = Optional.none();
+    private Optional<String> result = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder result(String filename) {
@@ -169,7 +169,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<Boolean> shouldDoGC = Optional.none();
+    private Optional<Boolean> shouldDoGC = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder shouldDoGC(boolean value) {
@@ -222,7 +222,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<VerboseMode> verbosity = Optional.none();
+    private Optional<VerboseMode> verbosity = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder verbosity(VerboseMode mode) {
@@ -237,7 +237,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<Boolean> shouldFailOnError = Optional.none();
+    private Optional<Boolean> shouldFailOnError = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder shouldFailOnError(boolean value) {
@@ -252,7 +252,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<Integer> threads = Optional.none();
+    private Optional<Integer> threads = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder threads(int count) {
@@ -270,7 +270,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<int[]> threadGroups = Optional.none();
+    private Optional<int[]> threadGroups = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder threadGroups(int... groups) {
@@ -291,7 +291,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<Boolean> syncIterations = Optional.none();
+    private Optional<Boolean> syncIterations = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder syncIterations(boolean value) {
@@ -306,7 +306,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<Integer> warmupIterations = Optional.none();
+    private Optional<Integer> warmupIterations = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder warmupIterations(int value) {
@@ -322,7 +322,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<Integer> warmupBatchSize = Optional.none();
+    private Optional<Integer> warmupBatchSize = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder warmupBatchSize(int value) {
@@ -338,7 +338,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<TimeValue> warmupTime = Optional.none();
+    private Optional<TimeValue> warmupTime = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder warmupTime(TimeValue value) {
@@ -353,7 +353,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<WarmupMode> warmupMode = Optional.none();
+    private Optional<WarmupMode> warmupMode = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder warmupMode(WarmupMode mode) {
@@ -388,7 +388,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<Integer> iterations = Optional.none();
+    private Optional<Integer> iterations = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder measurementIterations(int count) {
@@ -404,7 +404,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<TimeValue> measurementTime = Optional.none();
+    private Optional<TimeValue> measurementTime = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder measurementTime(TimeValue value) {
@@ -419,7 +419,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<Integer> measurementBatchSize = Optional.none();
+    private Optional<Integer> measurementBatchSize = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder measurementBatchSize(int value) {
@@ -454,7 +454,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<TimeUnit> timeUnit = Optional.none();
+    private Optional<TimeUnit> timeUnit = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder timeUnit(TimeUnit tu) {
@@ -469,7 +469,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<Integer> opsPerInvocation = Optional.none();
+    private Optional<Integer> opsPerInvocation = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder operationsPerInvocation(int opsPerInv) {
@@ -485,7 +485,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<Integer> forks = Optional.none();
+    private Optional<Integer> forks = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder forks(int value) {
@@ -501,7 +501,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<Integer> warmupForks = Optional.none();
+    private Optional<Integer> warmupForks = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder warmupForks(int value) {
@@ -517,7 +517,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<String> jvmBinary = Optional.none();
+    private Optional<String> jvmBinary = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder jvm(String path) {
@@ -532,7 +532,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<Collection<String>> jvmArgs = Optional.none();
+    private Optional<Collection<String>> jvmArgs = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder jvmArgs(String... value) {
@@ -547,7 +547,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<Collection<String>> jvmArgsAppend = Optional.none();
+    private Optional<Collection<String>> jvmArgsAppend = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder jvmArgsAppend(String... value) {
@@ -562,7 +562,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<Collection<String>> jvmArgsPrepend = Optional.none();
+    private Optional<Collection<String>> jvmArgsPrepend = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder jvmArgsPrepend(String... value) {
@@ -594,7 +594,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
             if (otherOptions != null) {
                 return otherOptions.getParameter(name);
             } else {
-                return Optional.none();
+                return Optional.empty();
             }
         } else {
             return Optional.of(list);
@@ -609,7 +609,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     // ---------------------------------------------------------------------------
 
-    private Optional<TimeValue> timeout = Optional.none();
+    private Optional<TimeValue> timeout = Optional.empty();
 
     @Override
     public ChainedOptionsBuilder timeout(TimeValue value) {

@@ -29,12 +29,10 @@ import org.junit.Test;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.runner.format.OutputFormat;
 import org.openjdk.jmh.runner.format.OutputFormatFactory;
-import org.openjdk.jmh.runner.options.TimeValue;
 import org.openjdk.jmh.runner.options.VerboseMode;
 import org.openjdk.jmh.util.Optional;
 
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -53,25 +51,25 @@ public class TestBenchmarkList {
                 generatedClassQName,
                 method,
                 mode,
-                Optional.<Integer>none(),
+                Optional.empty(),
                 new int[]{1},
-                Optional.<Collection<String>>none(),
-                Optional.<Integer>none(),
-                Optional.<TimeValue>none(),
-                Optional.<Integer>none(),
-                Optional.<Integer>none(),
-                Optional.<TimeValue>none(),
-                Optional.<Integer>none(),
-                Optional.<Integer>none(),
-                Optional.<Integer>none(),
-                Optional.<String>none(),
-                Optional.<Collection<String>>none(),
-                Optional.<Collection<String>>none(),
-                Optional.<Collection<String>>none(),
-                Optional.<Map<String, String[]>>none(),
-                Optional.<TimeUnit>none(),
-                Optional.<Integer>none(),
-                Optional.<TimeValue>none()
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty()
         );
 
         sb.append(br.toLine());

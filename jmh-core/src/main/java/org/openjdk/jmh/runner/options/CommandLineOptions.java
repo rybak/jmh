@@ -284,7 +284,7 @@ public class CommandLineOptions implements Options {
                 }
                 timeUnit = Optional.of(tu);
             } else {
-                timeUnit = Optional.none();
+                timeUnit = Optional.empty();
             }
 
             opsPerInvocation = toOptional(optOPI, set);
@@ -296,7 +296,7 @@ public class CommandLineOptions implements Options {
                     throw new CommandLineOptionException(iae.getMessage(), iae);
                 }
             } else {
-                warmupMode = Optional.none();
+                warmupMode = Optional.empty();
             }
 
             if (set.has(optResultFormat)) {
@@ -306,7 +306,7 @@ public class CommandLineOptions implements Options {
                     throw new CommandLineOptionException(iae.getMessage(), iae);
                 }
             } else {
-                resultFormat = Optional.none();
+                resultFormat = Optional.empty();
             }
 
             help = set.has("h");
@@ -354,7 +354,7 @@ public class CommandLineOptions implements Options {
                     throw new CommandLineOptionException(iae.getMessage(), iae);
                 }
             } else {
-                verbose = Optional.none();
+                verbose = Optional.empty();
             }
 
             regexps.addAll(set.valuesOf(optArgs));
@@ -433,7 +433,7 @@ public class CommandLineOptions implements Options {
         if (set.has(option)) {
             return Optional.eitherOf(option.value(set));
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     public Optional<Collection<String>> treatQuoted(OptionSet set, OptionSpec<String> spec) {
@@ -450,7 +450,7 @@ public class CommandLineOptions implements Options {
             }
             return Optional.of(Utils.splitQuotedEscape(spec.value(set)));
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     public void showHelp() throws IOException {
@@ -537,7 +537,7 @@ public class CommandLineOptions implements Options {
     public Optional<Collection<String>> getParameter(String name) {
         Collection<String> list = params.get(name);
         if (list == null || list.isEmpty()){
-            return Optional.none();
+            return Optional.empty();
         } else {
             return Optional.of(list);
         }
@@ -606,7 +606,7 @@ public class CommandLineOptions implements Options {
     @Override
     public Optional<int[]> getThreadGroups() {
         if (threadGroups.isEmpty()) {
-            return Optional.none();
+            return Optional.empty();
         } else {
             int[] r = new int[threadGroups.size()];
             for (int c = 0; c < r.length; c++) {

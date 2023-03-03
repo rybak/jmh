@@ -28,11 +28,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openjdk.jmh.runner.options.TimeValue;
 import org.openjdk.jmh.util.Optional;
-import org.openjdk.jmh.util.lines.TestLineReader;
-import org.openjdk.jmh.util.lines.TestLineWriter;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -46,29 +43,29 @@ public class TestLineTest {
         writer.putString("jmh");
         writer.putString("test");
         writer.putOptionalString(Optional.eitherOf("full-optional"));
-        writer.putOptionalString(Optional.<String>none());
+        writer.putOptionalString(Optional.empty());
 
         writer.putOptionalInt(Optional.eitherOf(42));
-        writer.putOptionalInt(Optional.<Integer>none());
+        writer.putOptionalInt(Optional.empty());
 
         writer.putIntArray(new int[] {5, 3, 2});
 
         writer.putOptionalTimeValue(Optional.eitherOf(TimeValue.milliseconds(14)));
-        writer.putOptionalTimeValue(Optional.<TimeValue>none());
+        writer.putOptionalTimeValue(Optional.empty());
 
         writer.putOptionalTimeUnit(Optional.eitherOf(TimeUnit.HOURS));
-        writer.putOptionalTimeUnit(Optional.<TimeUnit>none());
+        writer.putOptionalTimeUnit(Optional.empty());
 
-        writer.putOptionalStringCollection(Optional.<Collection<String>>eitherOf(Arrays.asList("foo", "bar", "baz")));
-        writer.putOptionalStringCollection(Optional.<Collection<String>>none());
+        writer.putOptionalStringCollection(Optional.eitherOf(Arrays.asList("foo", "bar", "baz")));
+        writer.putOptionalStringCollection(Optional.empty());
 
         HashMap<String, String[]> expectedMap = new HashMap<>();
         expectedMap.put("key1", new String[] {"val1", "val2"});
         expectedMap.put("key2", new String[] {"val3", "val4"});
         expectedMap.put("key3", new String[] {"val5\r", "val6"});
         expectedMap.put("key4", new String[] {"val7\rn", "val8\n"});
-        writer.putOptionalParamCollection(Optional.<Map<String,String[]>>eitherOf(expectedMap));
-        writer.putOptionalParamCollection(Optional.<Map<String,String[]>>none());
+        writer.putOptionalParamCollection(Optional.eitherOf(expectedMap));
+        writer.putOptionalParamCollection(Optional.empty());
 
         String s = writer.toString();
 

@@ -96,7 +96,7 @@ public class TestLineReader {
     public Optional<Integer> nextOptionalInt() {
         char tag = readChar();
         if (tag == Constants.TAG_EMPTY_OPTIONAL) {
-            return Optional.none();
+            return Optional.empty();
         } else if (tag == TAG_INT) {
             return Optional.of(Integer.valueOf(readString()));
         } else {
@@ -107,7 +107,7 @@ public class TestLineReader {
     public Optional<String> nextOptionalString() {
         char tag = readChar();
         if (tag == Constants.TAG_EMPTY_OPTIONAL) {
-            return Optional.none();
+            return Optional.empty();
         } else if (tag == TAG_STRING) {
             return Optional.of(readString());
         } else {
@@ -118,7 +118,7 @@ public class TestLineReader {
     public Optional<TimeValue> nextOptionalTimeValue() {
         char tag = readChar();
         if (tag == Constants.TAG_EMPTY_OPTIONAL) {
-            return Optional.none();
+            return Optional.empty();
         } else if (tag == TAG_TIMEVALUE) {
             return Optional.of(TimeValue.fromString(readString()));
         } else {
@@ -129,7 +129,7 @@ public class TestLineReader {
     public Optional<TimeUnit> nextOptionalTimeUnit() {
         char tag = readChar();
         if (tag == Constants.TAG_EMPTY_OPTIONAL) {
-            return Optional.none();
+            return Optional.empty();
         } else if (tag == TAG_TIMEUNIT) {
             return Optional.of(TimeUnit.valueOf(readString()));
         } else {
@@ -140,7 +140,7 @@ public class TestLineReader {
     public Optional<Collection<String>> nextOptionalStringCollection() {
         char tag = readChar();
         if (tag == Constants.TAG_EMPTY_OPTIONAL) {
-            return Optional.none();
+            return Optional.empty();
         } else if (tag == TAG_STRING_COLLECTION) {
             int len = readLen();
             Collection<String> list = new ArrayList<>();
@@ -170,7 +170,7 @@ public class TestLineReader {
     public Optional<Map<String, String[]>> nextOptionalParamCollection() {
         char tag = readChar();
         if (tag == Constants.TAG_EMPTY_OPTIONAL) {
-            return Optional.none();
+            return Optional.empty();
         } else if (tag == TAG_PARAM_MAP) {
             Map<String, String[]> result = new HashMap<>();
 

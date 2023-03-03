@@ -92,7 +92,7 @@ class MethodGroup implements Comparable<MethodGroup> {
         for (Threads ann : getAll(Threads.class)) {
             return Optional.of(ann.value());
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     public String getName() {
@@ -142,7 +142,7 @@ class MethodGroup implements Comparable<MethodGroup> {
             }
             return Optional.eitherOf(labels);
         } else {
-            return Optional.none();
+            return Optional.empty();
         }
     }
 
@@ -150,14 +150,14 @@ class MethodGroup implements Comparable<MethodGroup> {
         for (OperationsPerInvocation ann : getAll(OperationsPerInvocation.class)) {
             return Optional.of(ann.value());
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     public Optional<TimeUnit> getOutputTimeUnit() {
         for (OutputTimeUnit ann : getAll(OutputTimeUnit.class)) {
             return Optional.of(ann.value());
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     public Optional<Integer> getWarmupIterations() {
@@ -166,7 +166,7 @@ class MethodGroup implements Comparable<MethodGroup> {
                 return Optional.of(ann.iterations());
             }
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     public Optional<TimeValue> getWarmupTime() {
@@ -175,7 +175,7 @@ class MethodGroup implements Comparable<MethodGroup> {
                 return Optional.of(new TimeValue(ann.time(), ann.timeUnit()));
             }
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     public Optional<Integer> getWarmupBatchSize() {
@@ -184,7 +184,7 @@ class MethodGroup implements Comparable<MethodGroup> {
                 return Optional.of(ann.batchSize());
             }
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     public Optional<Integer> getMeasurementIterations() {
@@ -193,7 +193,7 @@ class MethodGroup implements Comparable<MethodGroup> {
                 return Optional.of(ann.iterations());
             }
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     public Optional<TimeValue> getMeasurementTime() {
@@ -202,7 +202,7 @@ class MethodGroup implements Comparable<MethodGroup> {
                 return Optional.of(new TimeValue(ann.time(), ann.timeUnit()));
             }
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     public Optional<Integer> getMeasurementBatchSize() {
@@ -211,7 +211,7 @@ class MethodGroup implements Comparable<MethodGroup> {
                 return Optional.of(ann.batchSize());
             }
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     public Optional<Integer> getForks() {
@@ -220,7 +220,7 @@ class MethodGroup implements Comparable<MethodGroup> {
                 return Optional.of(ann.value());
             }
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     public Optional<Integer> getWarmupForks() {
@@ -229,7 +229,7 @@ class MethodGroup implements Comparable<MethodGroup> {
                 return Optional.of(ann.warmups());
             }
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     public Optional<String> getJvm() {
@@ -238,7 +238,7 @@ class MethodGroup implements Comparable<MethodGroup> {
                 return Optional.of(ann.jvm());
             }
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     public Optional<Collection<String>> getJvmArgs() {
@@ -248,7 +248,7 @@ class MethodGroup implements Comparable<MethodGroup> {
                 return Optional.<Collection<String>>of(Arrays.asList(args));
             }
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     public Optional<Collection<String>> getJvmArgsAppend() {
@@ -258,7 +258,7 @@ class MethodGroup implements Comparable<MethodGroup> {
                 return Optional.<Collection<String>>of(Arrays.asList(args));
             }
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     public Optional<Collection<String>> getJvmArgsPrepend() {
@@ -268,14 +268,14 @@ class MethodGroup implements Comparable<MethodGroup> {
                 return Optional.<Collection<String>>of(Arrays.asList(args));
             }
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     public Optional<TimeValue> getTimeout() {
         for (Timeout ann : getAll(Timeout.class)) {
             return Optional.of(new TimeValue(ann.time(), ann.timeUnit()));
         }
-        return Optional.none();
+        return Optional.empty();
     }
 
     private <T extends Annotation> Collection<T> getAll(Class<T> annClass) {
@@ -304,7 +304,7 @@ class MethodGroup implements Comparable<MethodGroup> {
         }
 
         if (params.isEmpty()) {
-            return Optional.none();
+            return Optional.empty();
         } else {
             return Optional.of(map);
         }
