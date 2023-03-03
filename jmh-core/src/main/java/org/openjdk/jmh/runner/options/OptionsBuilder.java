@@ -36,6 +36,7 @@ import org.openjdk.jmh.util.Utils;
 import java.lang.management.ManagementFactory;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 public class OptionsBuilder implements Options, ChainedOptionsBuilder {
     private static final long serialVersionUID = -4088596253924343849L;
@@ -68,6 +69,14 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
             message += "greater or equal than " + minValue;
         }
         throw new IllegalArgumentException(message);
+    }
+
+    private <T> Optional<T> getOrOther(Optional<T> thisOption, Function<Options, Optional<T>> getter) {
+        if (otherOptions != null) {
+            return thisOption.orAnother(getter.apply(otherOptions));
+        } else {
+            return thisOption;
+        }
     }
 
     // ---------------------------------------------------------------------------
@@ -126,11 +135,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<String> getOutput() {
-        if (otherOptions != null) {
-            return output.orAnother(otherOptions.getOutput());
-        } else {
-            return output;
-        }
+        return getOrOther(output, Options::getOutput);
     }
 
     // ---------------------------------------------------------------------------
@@ -145,11 +150,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<ResultFormatType> getResultFormat() {
-        if (otherOptions != null) {
-            return rfType.orAnother(otherOptions.getResultFormat());
-        } else {
-            return rfType;
-        }
+        return getOrOther(rfType, Options::getResultFormat);
     }
 
     // ---------------------------------------------------------------------------
@@ -164,11 +165,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<String> getResult() {
-        if (otherOptions != null) {
-            return result.orAnother(otherOptions.getResult());
-        } else {
-            return result;
-        }
+        return getOrOther(result, Options::getResult);
     }
 
     // ---------------------------------------------------------------------------
@@ -183,11 +180,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<Boolean> shouldDoGC() {
-        if (otherOptions != null) {
-            return shouldDoGC.orAnother(otherOptions.shouldDoGC());
-        } else {
-            return shouldDoGC;
-        }
+        return getOrOther(shouldDoGC, Options::shouldDoGC);
     }
 
     // ---------------------------------------------------------------------------
@@ -240,11 +233,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<VerboseMode> verbosity() {
-        if (otherOptions != null) {
-            return verbosity.orAnother(otherOptions.verbosity());
-        } else {
-            return verbosity;
-        }
+        return getOrOther(verbosity, Options::verbosity);
     }
 
     // ---------------------------------------------------------------------------
@@ -259,11 +248,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<Boolean> shouldFailOnError() {
-        if (otherOptions != null) {
-            return shouldFailOnError.orAnother(otherOptions.shouldFailOnError());
-        } else {
-            return shouldFailOnError;
-        }
+        return getOrOther(shouldFailOnError, Options::shouldFailOnError);
     }
 
     // ---------------------------------------------------------------------------
@@ -281,11 +266,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<Integer> getThreads() {
-        if (otherOptions != null) {
-            return threads.orAnother(otherOptions.getThreads());
-        } else {
-            return threads;
-        }
+        return getOrOther(threads, Options::getThreads);
     }
 
     // ---------------------------------------------------------------------------
@@ -306,11 +287,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<int[]> getThreadGroups() {
-        if (otherOptions != null) {
-            return threadGroups.orAnother(otherOptions.getThreadGroups());
-        } else {
-            return threadGroups;
-        }
+        return getOrOther(threadGroups, Options::getThreadGroups);
     }
 
     // ---------------------------------------------------------------------------
@@ -325,11 +302,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<Boolean> shouldSyncIterations() {
-        if (otherOptions != null) {
-            return syncIterations.orAnother(otherOptions.shouldSyncIterations());
-        } else {
-            return syncIterations;
-        }
+        return getOrOther(syncIterations, Options::shouldSyncIterations);
     }
 
     // ---------------------------------------------------------------------------
@@ -345,11 +318,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<Integer> getWarmupIterations() {
-        if (otherOptions != null) {
-            return warmupIterations.orAnother(otherOptions.getWarmupIterations());
-        } else {
-            return warmupIterations;
-        }
+        return getOrOther(warmupIterations, Options::getWarmupIterations);
     }
 
     // ---------------------------------------------------------------------------
@@ -365,11 +334,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<Integer> getWarmupBatchSize() {
-        if (otherOptions != null) {
-            return warmupBatchSize.orAnother(otherOptions.getWarmupBatchSize());
-        } else {
-            return warmupBatchSize;
-        }
+        return getOrOther(warmupBatchSize, Options::getWarmupBatchSize);
     }
 
     // ---------------------------------------------------------------------------
@@ -384,11 +349,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<TimeValue> getWarmupTime() {
-        if (otherOptions != null) {
-            return warmupTime.orAnother(otherOptions.getWarmupTime());
-        } else {
-            return warmupTime;
-        }
+        return getOrOther(warmupTime, Options::getWarmupTime);
     }
 
     // ---------------------------------------------------------------------------
@@ -403,11 +364,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<WarmupMode> getWarmupMode() {
-        if (otherOptions != null) {
-            return warmupMode.orAnother(otherOptions.getWarmupMode());
-        } else {
-            return warmupMode;
-        }
+        return getOrOther(warmupMode, Options::getWarmupMode);
     }
 
     // ---------------------------------------------------------------------------
@@ -443,11 +400,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<Integer> getMeasurementIterations() {
-        if (otherOptions != null) {
-            return iterations.orAnother(otherOptions.getMeasurementIterations());
-        } else {
-            return iterations;
-        }
+        return getOrOther(iterations, Options::getMeasurementIterations);
     }
 
     // ---------------------------------------------------------------------------
@@ -462,11 +415,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<TimeValue> getMeasurementTime() {
-        if (otherOptions != null) {
-            return measurementTime.orAnother(otherOptions.getMeasurementTime());
-        } else {
-            return measurementTime;
-        }
+        return getOrOther(measurementTime, Options::getMeasurementTime);
     }
 
     // ---------------------------------------------------------------------------
@@ -482,13 +431,8 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<Integer> getMeasurementBatchSize() {
-        if (otherOptions != null) {
-            return measurementBatchSize.orAnother(otherOptions.getMeasurementBatchSize());
-        } else {
-            return measurementBatchSize;
-        }
+        return getOrOther(measurementBatchSize, Options::getMeasurementBatchSize);
     }
-
 
     // ---------------------------------------------------------------------------
 
@@ -521,11 +465,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<TimeUnit> getTimeUnit() {
-        if (otherOptions != null) {
-            return timeUnit.orAnother(otherOptions.getTimeUnit());
-        } else {
-            return timeUnit;
-        }
+        return getOrOther(timeUnit, Options::getTimeUnit);
     }
 
     // ---------------------------------------------------------------------------
@@ -541,11 +481,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<Integer> getOperationsPerInvocation() {
-        if (otherOptions != null) {
-            return opsPerInvocation.orAnother(otherOptions.getOperationsPerInvocation());
-        } else {
-            return opsPerInvocation;
-        }
+        return getOrOther(opsPerInvocation, Options::getOperationsPerInvocation);
     }
 
     // ---------------------------------------------------------------------------
@@ -561,11 +497,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<Integer> getForkCount() {
-        if (otherOptions != null) {
-            return forks.orAnother(otherOptions.getForkCount());
-        } else {
-            return forks;
-        }
+        return getOrOther(forks, Options::getForkCount);
     }
 
     // ---------------------------------------------------------------------------
@@ -581,11 +513,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<Integer> getWarmupForkCount() {
-        if (otherOptions != null) {
-            return warmupForks.orAnother(otherOptions.getWarmupForkCount());
-        } else {
-            return warmupForks;
-        }
+        return getOrOther(warmupForks, Options::getWarmupForkCount);
     }
 
     // ---------------------------------------------------------------------------
@@ -600,11 +528,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<String> getJvm() {
-        if (otherOptions != null) {
-            return jvmBinary.orAnother(otherOptions.getJvm());
-        } else {
-            return jvmBinary;
-        }
+        return getOrOther(jvmBinary, Options::getJvm);
     }
 
     // ---------------------------------------------------------------------------
@@ -619,11 +543,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<Collection<String>> getJvmArgs() {
-        if (otherOptions != null) {
-            return jvmArgs.orAnother(otherOptions.getJvmArgs());
-        } else {
-            return jvmArgs;
-        }
+        return getOrOther(jvmArgs, Options::getJvmArgs);
     }
 
     // ---------------------------------------------------------------------------
@@ -638,11 +558,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<Collection<String>> getJvmArgsAppend() {
-        if (otherOptions != null) {
-            return jvmArgsAppend.orAnother(otherOptions.getJvmArgsAppend());
-        } else {
-            return jvmArgsAppend;
-        }
+        return getOrOther(jvmArgsAppend, Options::getJvmArgsAppend);
     }
 
     // ---------------------------------------------------------------------------
@@ -657,11 +573,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<Collection<String>> getJvmArgsPrepend() {
-        if (otherOptions != null) {
-            return jvmArgsPrepend.orAnother(otherOptions.getJvmArgsPrepend());
-        } else {
-            return jvmArgsPrepend;
-        }
+        return getOrOther(jvmArgsPrepend, Options::getJvmArgsPrepend);
     }
 
     // ---------------------------------------------------------------------------
@@ -708,11 +620,7 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
 
     @Override
     public Optional<TimeValue> getTimeout() {
-        if (otherOptions != null) {
-            return timeout.orAnother(otherOptions.getTimeout());
-        } else {
-            return timeout;
-        }
+        return getOrOther(timeout, Options::getTimeout);
     }
 
     // ---------------------------------------------------------------------------
