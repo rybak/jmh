@@ -26,7 +26,6 @@ package org.openjdk.jmh.generators.core;
 
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.options.TimeValue;
-import org.openjdk.jmh.util.Optional;
 
 import java.lang.annotation.Annotation;
 import java.util.*;

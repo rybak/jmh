@@ -26,7 +26,6 @@ package org.openjdk.jmh.runner;
 
 import org.junit.Test;
 import org.openjdk.jmh.annotations.Mode;
-import org.openjdk.jmh.util.Optional;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

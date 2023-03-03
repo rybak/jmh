@@ -31,7 +31,6 @@ import org.openjdk.jmh.results.format.ResultFormatType;
 import org.openjdk.jmh.runner.Defaults;
 import org.openjdk.jmh.util.HashMultimap;
 import org.openjdk.jmh.util.Multimap;
-import org.openjdk.jmh.util.Optional;
 import org.openjdk.jmh.util.Utils;
 
 import java.io.IOException;

@@ -30,7 +30,6 @@ import org.openjdk.jmh.profile.Profiler;
 import org.openjdk.jmh.results.format.ResultFormatType;
 import org.openjdk.jmh.util.HashMultimap;
 import org.openjdk.jmh.util.Multimap;
-import org.openjdk.jmh.util.Optional;
 import org.openjdk.jmh.util.Utils;
 
 import java.lang.management.ManagementFactory;

@@ -27,11 +27,11 @@ package org.openjdk.jmh.util.lines;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openjdk.jmh.runner.options.TimeValue;
-import org.openjdk.jmh.util.Optional;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 public class TestLineTest {

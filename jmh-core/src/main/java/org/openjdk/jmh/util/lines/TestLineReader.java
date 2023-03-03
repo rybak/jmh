@@ -25,12 +25,12 @@
 package org.openjdk.jmh.util.lines;
 
 import org.openjdk.jmh.runner.options.TimeValue;
-import org.openjdk.jmh.util.Optional;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 import static org.openjdk.jmh.util.lines.Constants.*;

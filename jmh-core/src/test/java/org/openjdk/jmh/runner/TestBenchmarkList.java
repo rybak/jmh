@@ -30,7 +30,6 @@ import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.runner.format.OutputFormat;
 import org.openjdk.jmh.runner.format.OutputFormatFactory;
 import org.openjdk.jmh.runner.options.VerboseMode;
-import org.openjdk.jmh.util.Optional;
 
 import java.util.*;
 

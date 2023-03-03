@@ -26,7 +26,6 @@ package org.openjdk.jmh.runner;
 
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.runner.options.TimeValue;
-import org.openjdk.jmh.util.Optional;
 import org.openjdk.jmh.util.lines.TestLineReader;
 import org.openjdk.jmh.util.lines.TestLineWriter;
 
@@ -34,6 +33,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 public class BenchmarkListEntry implements Comparable<BenchmarkListEntry> {

@@ -38,7 +38,6 @@ import org.openjdk.jmh.runner.format.OutputFormatFactory;
 import org.openjdk.jmh.runner.link.BinaryLinkServer;
 import org.openjdk.jmh.runner.options.*;
 import org.openjdk.jmh.util.*;
-import org.openjdk.jmh.util.Optional;
 
 import java.io.*;
 import java.lang.management.ManagementFactory;
