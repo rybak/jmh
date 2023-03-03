@@ -128,7 +128,7 @@ public class TestParentOptions {
     public void testForks_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getForkCount().hasValue());
+        Assert.assertFalse(builder.getForkCount().isPresent());
     }
 
     @Test
@@ -149,7 +149,7 @@ public class TestParentOptions {
     public void testGC_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.shouldDoGC().hasValue());
+        Assert.assertFalse(builder.shouldDoGC().isPresent());
     }
 
     @Test
@@ -170,7 +170,7 @@ public class TestParentOptions {
     public void testJVM_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getJvm().hasValue());
+        Assert.assertFalse(builder.getJvm().isPresent());
     }
 
     @Test
@@ -191,7 +191,7 @@ public class TestParentOptions {
     public void testJVMArgs_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getJvmArgs().hasValue());
+        Assert.assertFalse(builder.getJvmArgs().isPresent());
     }
 
     @Test
@@ -212,7 +212,7 @@ public class TestParentOptions {
     public void testJVMArgsAppend_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getJvmArgsAppend().hasValue());
+        Assert.assertFalse(builder.getJvmArgsAppend().isPresent());
     }
 
     @Test
@@ -233,7 +233,7 @@ public class TestParentOptions {
     public void testJVMArgsPrepend_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getJvmArgsPrepend().hasValue());
+        Assert.assertFalse(builder.getJvmArgsPrepend().isPresent());
     }
 
     @Test
@@ -254,7 +254,7 @@ public class TestParentOptions {
     public void testOutput_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getOutput().hasValue());
+        Assert.assertFalse(builder.getOutput().isPresent());
     }
 
     @Test
@@ -275,7 +275,7 @@ public class TestParentOptions {
     public void testResult_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getResult().hasValue());
+        Assert.assertFalse(builder.getResult().isPresent());
     }
 
     @Test
@@ -296,7 +296,7 @@ public class TestParentOptions {
     public void testResultFormat_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getResultFormat().hasValue());
+        Assert.assertFalse(builder.getResultFormat().isPresent());
     }
 
     @Test
@@ -317,7 +317,7 @@ public class TestParentOptions {
     public void testRuntime_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getMeasurementTime().hasValue());
+        Assert.assertFalse(builder.getMeasurementTime().isPresent());
     }
 
     @Test
@@ -338,7 +338,7 @@ public class TestParentOptions {
     public void testMeasureIters_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getMeasurementIterations().hasValue());
+        Assert.assertFalse(builder.getMeasurementIterations().isPresent());
     }
 
     @Test
@@ -359,7 +359,7 @@ public class TestParentOptions {
     public void testSFOE_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.shouldFailOnError().hasValue());
+        Assert.assertFalse(builder.shouldFailOnError().isPresent());
     }
 
     @Test
@@ -380,7 +380,7 @@ public class TestParentOptions {
     public void testSyncIters_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.shouldSyncIterations().hasValue());
+        Assert.assertFalse(builder.shouldSyncIterations().isPresent());
     }
 
     @Test
@@ -401,7 +401,7 @@ public class TestParentOptions {
     public void testThreadGroups_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getThreadGroups().hasValue());
+        Assert.assertFalse(builder.getThreadGroups().isPresent());
     }
 
     @Test
@@ -422,7 +422,7 @@ public class TestParentOptions {
     public void testThreads_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getThreads().hasValue());
+        Assert.assertFalse(builder.getThreads().isPresent());
     }
 
     @Test
@@ -443,7 +443,7 @@ public class TestParentOptions {
     public void testTimeUnit_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getTimeUnit().hasValue());
+        Assert.assertFalse(builder.getTimeUnit().isPresent());
     }
 
     @Test
@@ -464,7 +464,7 @@ public class TestParentOptions {
     public void testOPI_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getOperationsPerInvocation().hasValue());
+        Assert.assertFalse(builder.getOperationsPerInvocation().isPresent());
     }
 
     @Test
@@ -485,7 +485,7 @@ public class TestParentOptions {
     public void testVerbose_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.verbosity().hasValue());
+        Assert.assertFalse(builder.verbosity().isPresent());
     }
 
     @Test
@@ -506,7 +506,7 @@ public class TestParentOptions {
     public void testWarmupForks_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getWarmupForkCount().hasValue());
+        Assert.assertFalse(builder.getWarmupForkCount().isPresent());
     }
 
     @Test
@@ -527,7 +527,7 @@ public class TestParentOptions {
     public void testWarmupIters_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getWarmupIterations().hasValue());
+        Assert.assertFalse(builder.getWarmupIterations().isPresent());
     }
 
     @Test
@@ -548,7 +548,7 @@ public class TestParentOptions {
     public void testWarmupTime_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getWarmupTime().hasValue());
+        Assert.assertFalse(builder.getWarmupTime().isPresent());
     }
 
     @Test
@@ -590,7 +590,7 @@ public class TestParentOptions {
     public void testParameters_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getParameter("x").hasValue());
+        Assert.assertFalse(builder.getParameter("x").isPresent());
     }
 
     @Test
@@ -619,7 +619,7 @@ public class TestParentOptions {
     public void testTimeout_Empty() {
         Options parent = new OptionsBuilder().build();
         Options builder = new OptionsBuilder().parent(parent).build();
-        Assert.assertFalse(builder.getTimeout().hasValue());
+        Assert.assertFalse(builder.getTimeout().isPresent());
     }
 
     @Test

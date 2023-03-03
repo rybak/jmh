@@ -71,7 +71,7 @@ public class TestLineWriter {
     }
 
     public void putOptionalInt(Optional<Integer> opt) {
-        if (!opt.hasValue()) {
+        if (!opt.isPresent()) {
             appendTag(TAG_EMPTY_OPTIONAL);
         } else {
             appendTag(TAG_INT);
@@ -80,7 +80,7 @@ public class TestLineWriter {
     }
 
     public void putOptionalString(Optional<String> opt) {
-        if (!opt.hasValue()) {
+        if (!opt.isPresent()) {
             appendTag(TAG_EMPTY_OPTIONAL);
         } else {
             appendTag(TAG_STRING);
@@ -97,7 +97,7 @@ public class TestLineWriter {
     }
 
     public void putOptionalStringCollection(Optional<Collection<String>> opt) {
-        if (!opt.hasValue()) {
+        if (!opt.isPresent()) {
             appendTag(TAG_EMPTY_OPTIONAL);
         } else {
             appendTag(TAG_STRING_COLLECTION);
@@ -110,7 +110,7 @@ public class TestLineWriter {
     }
 
     public void putOptionalTimeValue(Optional<TimeValue> opt) {
-        if (!opt.hasValue()) {
+        if (!opt.isPresent()) {
             appendTag(TAG_EMPTY_OPTIONAL);
         } else {
             appendTag(TAG_TIMEVALUE);
@@ -119,7 +119,7 @@ public class TestLineWriter {
     }
 
     public void putOptionalTimeUnit(Optional<TimeUnit> opt) {
-        if (!opt.hasValue()) {
+        if (!opt.isPresent()) {
             appendTag(TAG_EMPTY_OPTIONAL);
         } else {
             appendTag(TAG_TIMEUNIT);
@@ -128,7 +128,7 @@ public class TestLineWriter {
     }
 
     public void putOptionalParamCollection(Optional<Map<String, String[]>> opt) {
-        if (!opt.hasValue()) {
+        if (!opt.isPresent()) {
             appendTag(TAG_EMPTY_OPTIONAL);
         } else {
             appendTag(TAG_PARAM_MAP);

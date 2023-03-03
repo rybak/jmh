@@ -75,21 +75,21 @@ public class TestLineTest {
         Assert.assertEquals("test", reader.nextString());
 
         Assert.assertEquals("full-optional", reader.nextOptionalString().get());
-        Assert.assertEquals(false, reader.nextOptionalString().hasValue());
+        Assert.assertEquals(false, reader.nextOptionalString().isPresent());
 
         Assert.assertEquals(42, (int)reader.nextOptionalInt().get());
-        Assert.assertEquals(false, reader.nextOptionalInt().hasValue());
+        Assert.assertEquals(false, reader.nextOptionalInt().isPresent());
 
         Assert.assertTrue(Arrays.equals(new int[] {5, 3, 2}, reader.nextIntArray()));
 
         Assert.assertEquals(TimeValue.milliseconds(14), reader.nextOptionalTimeValue().get());
-        Assert.assertEquals(false, reader.nextOptionalTimeValue().hasValue());
+        Assert.assertEquals(false, reader.nextOptionalTimeValue().isPresent());
 
         Assert.assertEquals(TimeUnit.HOURS, reader.nextOptionalTimeUnit().get());
-        Assert.assertEquals(false, reader.nextOptionalTimeUnit().hasValue());
+        Assert.assertEquals(false, reader.nextOptionalTimeUnit().isPresent());
 
         Assert.assertEquals(Arrays.asList("foo", "bar", "baz"), reader.nextOptionalStringCollection().get());
-        Assert.assertEquals(false, reader.nextOptionalStringCollection().hasValue());
+        Assert.assertEquals(false, reader.nextOptionalStringCollection().isPresent());
 
         Map<String, String[]> actualMap = reader.nextOptionalParamCollection().get();
         Assert.assertEquals(expectedMap.size(), actualMap.size());

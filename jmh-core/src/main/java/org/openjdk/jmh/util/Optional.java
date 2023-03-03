@@ -83,7 +83,7 @@ public class Optional<T> implements Serializable {
         }
     }
 
-    public boolean hasValue() {
+    public boolean isPresent() {
         return val != null;
     }
 

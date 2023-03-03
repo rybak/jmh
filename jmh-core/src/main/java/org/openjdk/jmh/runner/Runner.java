@@ -97,7 +97,7 @@ public class Runner extends BaseRunner {
         }
 
         PrintStream out;
-        if (options.getOutput().hasValue()) {
+        if (options.getOutput().isPresent()) {
             try {
                 out = new PrintStream(options.getOutput().get());
             } catch (FileNotFoundException ex) {
@@ -137,7 +137,7 @@ public class Runner extends BaseRunner {
         for (BenchmarkListEntry benchmark : benchmarks) {
             out.println(benchmark.getUsername());
             Optional<Map<String, String[]>> params = benchmark.getParams();
-            if (params.hasValue()) {
+            if (params.isPresent()) {
                 for (Map.Entry<String, String[]> e : params.get().entrySet()) {
                     String param = e.getKey();
                     Collection<String> values = options.getParameter(param).orElse(Arrays.asList(e.getValue()));
@@ -237,7 +237,7 @@ public class Runner extends BaseRunner {
         // If user requested the result file in one way or the other, touch the result file,
         // and prepare to write it out after the run.
         String resultFile = null;
-        if (options.getResult().hasValue() || options.getResultFormat().hasValue()) {
+        if (options.getResult().isPresent() || options.getResultFormat().isPresent()) {
             resultFile = options.getResult().orElse(
                         Defaults.RESULT_FILE_PREFIX + "." +
                                 options.getResultFormat().orElse(Defaults.RESULT_FORMAT).toString().toLowerCase()
@@ -294,7 +294,7 @@ public class Runner extends BaseRunner {
         {
             List<BenchmarkListEntry> newBenchmarks = new ArrayList<>();
             for (BenchmarkListEntry br : benchmarks) {
-                if (br.getParams().hasValue()) {
+                if (br.getParams().isPresent()) {
                     for (WorkloadParams p : explodeAllParams(br)) {
                         newBenchmarks.add(br.cloneWith(p));
                     }
