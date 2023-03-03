@@ -75,7 +75,7 @@ public class Optional<T> implements Serializable {
         return new Optional<>(val);
     }
 
-    public static <T> Optional<T> eitherOf(T val) {
+    public static <T> Optional<T> ofNullable(T val) {
         if (val == null) {
             return Optional.empty();
         } else {

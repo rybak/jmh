@@ -140,7 +140,7 @@ class MethodGroup implements Comparable<MethodGroup> {
             for (MethodInvocation mi : methods) {
                 labels.add(mi.method.getName());
             }
-            return Optional.eitherOf(labels);
+            return Optional.ofNullable(labels);
         } else {
             return Optional.empty();
         }

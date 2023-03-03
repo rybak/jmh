@@ -431,7 +431,7 @@ public class CommandLineOptions implements Options {
 
     private static <T> Optional<T> toOptional(OptionSpec<T> option, OptionSet set) {
         if (set.has(option)) {
-            return Optional.eitherOf(option.value(set));
+            return Optional.ofNullable(option.value(set));
         }
         return Optional.empty();
     }

@@ -42,21 +42,21 @@ public class TestLineTest {
 
         writer.putString("jmh");
         writer.putString("test");
-        writer.putOptionalString(Optional.eitherOf("full-optional"));
+        writer.putOptionalString(Optional.ofNullable("full-optional"));
         writer.putOptionalString(Optional.empty());
 
-        writer.putOptionalInt(Optional.eitherOf(42));
+        writer.putOptionalInt(Optional.ofNullable(42));
         writer.putOptionalInt(Optional.empty());
 
         writer.putIntArray(new int[] {5, 3, 2});
 
-        writer.putOptionalTimeValue(Optional.eitherOf(TimeValue.milliseconds(14)));
+        writer.putOptionalTimeValue(Optional.ofNullable(TimeValue.milliseconds(14)));
         writer.putOptionalTimeValue(Optional.empty());
 
-        writer.putOptionalTimeUnit(Optional.eitherOf(TimeUnit.HOURS));
+        writer.putOptionalTimeUnit(Optional.ofNullable(TimeUnit.HOURS));
         writer.putOptionalTimeUnit(Optional.empty());
 
-        writer.putOptionalStringCollection(Optional.eitherOf(Arrays.asList("foo", "bar", "baz")));
+        writer.putOptionalStringCollection(Optional.ofNullable(Arrays.asList("foo", "bar", "baz")));
         writer.putOptionalStringCollection(Optional.empty());
 
         HashMap<String, String[]> expectedMap = new HashMap<>();
@@ -64,7 +64,7 @@ public class TestLineTest {
         expectedMap.put("key2", new String[] {"val3", "val4"});
         expectedMap.put("key3", new String[] {"val5\r", "val6"});
         expectedMap.put("key4", new String[] {"val7\rn", "val8\n"});
-        writer.putOptionalParamCollection(Optional.eitherOf(expectedMap));
+        writer.putOptionalParamCollection(Optional.ofNullable(expectedMap));
         writer.putOptionalParamCollection(Optional.empty());
 
         String s = writer.toString();
