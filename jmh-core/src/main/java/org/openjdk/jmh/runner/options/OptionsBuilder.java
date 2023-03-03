@@ -72,11 +72,10 @@ public class OptionsBuilder implements Options, ChainedOptionsBuilder {
     }
 
     private <T> Optional<T> getOrOther(Optional<T> thisOption, Function<Options, Optional<T>> getter) {
-        if (otherOptions != null) {
-            return thisOption.orAnother(getter.apply(otherOptions));
-        } else {
-            return thisOption;
+        if (otherOptions != null && !thisOption.hasValue()) {
+            return getter.apply(otherOptions);
         }
+        return thisOption;
     }
 
     // ---------------------------------------------------------------------------

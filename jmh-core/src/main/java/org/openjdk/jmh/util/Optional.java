@@ -56,10 +56,6 @@ public class Optional<T> implements Serializable {
         return val != null ? val : alternativeSupplier.get();
     }
 
-    public Optional<T> orAnother(Optional<T> alternative) {
-        return (val == null) ? alternative : this;
-    }
-
     /**
      * Produce empty Option
      * @param <T> type
